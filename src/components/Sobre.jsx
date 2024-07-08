@@ -1,4 +1,8 @@
 import Image from "next/image";
+import Image1 from "../assets/1.jpg";
+import Image2 from "../assets/2.jpg";
+import Image3 from "../assets/3.jpg";
+import Image4 from "../assets/4.jpg";
 
 export function Sobre() {
   return (
@@ -37,27 +41,34 @@ export function Sobre() {
         grande sonho, o dia em que uniremos nossas almas e corpos para sempre, o
         dia do nosso casamento.
       </p>
-      <div className="grid sm:grid-cols-3 gap-5">
+      <div className="grid justify-center sm:grid-cols-2 md:grid-cols-4 gap-5">
         <Image
-          src={"/bg.png"}
+          src={Image1}
           alt="oi"
           width={400}
           height={400}
-          className="shadow-violet-700 shadow-lg"
+          className="shadow-zinc-800 shadow-lg h-96 object-cover"
         />
         <Image
-          src={"/bg.png"}
+          src={Image3}
           alt="oi"
           width={400}
           height={400}
-          className="shadow-violet-700 shadow-lg"
+          className="shadow-zinc-800 shadow-lg h-96 object-cover"
         />
         <Image
-          src={"/bg.png"}
+          src={Image2}
           alt="oi"
           width={400}
           height={400}
-          className="shadow-violet-700 shadow-lg"
+          className="shadow-zinc-800 shadow-lg h-96 object-cover"
+        />
+        <Image
+          src={Image4}
+          alt="oi"
+          width={400}
+          height={400}
+          className="shadow-zinc-800 shadow-lg h-96 object-cover"
         />
       </div>
     </div>

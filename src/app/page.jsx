@@ -6,12 +6,14 @@ import { Sobre } from "@/components/Sobre";
 import Head from "next/head";
 import React from "react";
 import { Link } from "react-scroll";
+import { Dancing_Script } from "next/font/google";
+const dancingScript = Dancing_Script({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main className="bg-gradient-to-tr from-black to-zinc-900">
-      <div className="bg-[url('/bg.png')] w-full min-h-screen bg-cover bg-bottom">
-        <header className="max-w-6xl mx-auto flex items-center justify-between px-4 py-8">
+      <div className="bg-[url('/bdNoText.png')] w-full bg-cover bg-right sm:bg-bottom py-8">
+        <header className="max-w-6xl mx-auto flex items-center justify-between px-4">
           <span className="text-5xl font-bold text-white">
             𝒢 <span className="font-thin italic">+</span> 𝐼
           </span>
@@ -28,7 +30,7 @@ export default function Home() {
                   Sobre
                 </Link>
               </li>
-              <li className="cursor-pointer">
+              {/* <li className="cursor-pointer">
                 <Link
                   to="Padrinhos"
                   spy={true}
@@ -38,7 +40,7 @@ export default function Home() {
                 >
                   Padrinhos
                 </Link>
-              </li>
+              </li> */}
               <li className="cursor-pointer">
                 <Link
                   to="Presentes"
@@ -64,9 +66,17 @@ export default function Home() {
             </ul>
           </nav>
         </header>
+        <div
+          className={`${dancingScript.className} flex flex-col justify-end items-end min-h-96 md:min-h-[600px] max-w-6xl mx-auto px-4`}
+        >
+          <p className="text-white text-5xl sm:text-8xl">
+            Guilherme & Isabella
+          </p>
+          <p className="text-white text-xl sm:text-3xl">25/01/2025</p>
+        </div>
       </div>
       <Sobre />
-      <Padrinhos />
+      {/* <Padrinhos /> */}
       <ListPresentes />
       {/*  <Festa /> */}
       <footer className="text-xs text-center text-white pb-2 flex justify-between items-center max-w-6xl mx-auto px-4">
