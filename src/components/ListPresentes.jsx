@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
+import presentes from "../components/presentes.json";
 
 export function ListPresentes() {
   return (
-    <div className="max-w-6xl mx-auto text-center py-12 text-white space-y-12">
+    <div className="max-w-6xl mx-auto text-center py-12 text-white space-y-12 flex flex-col items-center">
       <h2 className="font-bold text-4xl text-violet-700 flex items-center justify-center gap-2">
         Lista de casamento
         <svg
@@ -24,60 +26,36 @@ export function ListPresentes() {
       </p>
 
       <div className="flex gap-10 flex-wrap justify-center">
-        <div className="w-56 bg-gray-100 p-4 text-zinc-800 text-center">
-          <Image src={"/bg.png"} alt="oi" width={400} height={400} />
-          <div className="flex flex-col text-sm space-y-4 mt-4">
-            <span>Adega de vinhos digital - 28 garrafas</span>
-            <span className="text-lg font-bold">R$ 1.039,39</span>
-            <button className="bg-violet-950 text-white text-xl font-medium py-2">
-              Comprar
-            </button>
+        {presentes.slice(0, 8).map((e) => (
+          <div className="w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2">
+            <div className="flex flex-col justify-between text-sm space-y-2">
+              <div className="bg-white">
+                <Image
+                  src={e.imagem}
+                  alt="oi"
+                  width={400}
+                  height={400}
+                  className="h-56 object-contain"
+                />
+              </div>
+              <span>{e.nome}</span>
+            </div>
+            <a
+              href={e.link}
+              target="_blank"
+              className="bg-violet-950 hover:bg-violet-900 duration-300 text-white py-2"
+            >
+              Ver no Site
+            </a>
           </div>
-        </div>
-        <div className="w-56 bg-gray-100 p-4 text-zinc-800 text-center">
-          <Image src={"/bg.png"} alt="oi" width={400} height={400} />
-          <div className="flex flex-col text-sm space-y-4 mt-4">
-            <span>Adega de vinhos digital - 28 garrafas</span>
-            <span className="text-lg font-bold">R$ 1.039,39</span>
-            <button className="bg-violet-950 text-white text-xl font-medium py-2">
-              Comprar
-            </button>
-          </div>
-        </div>
-        <div className="w-56 bg-gray-100 p-4 text-zinc-800 text-center">
-          <Image src={"/bg.png"} alt="oi" width={400} height={400} />
-          <div className="flex flex-col text-sm space-y-4 mt-4">
-            <span>Adega de vinhos digital - 28 garrafas</span>
-            <span className="text-lg font-bold">R$ 1.039,39</span>
-            <button className="bg-violet-950 text-white text-xl font-medium py-2">
-              Comprar
-            </button>
-          </div>
-        </div>
-        <div className="w-56 bg-gray-100 p-4 text-zinc-800 text-center">
-          <Image src={"/bg.png"} alt="oi" width={400} height={400} />
-          <div className="flex flex-col text-sm space-y-4 mt-4">
-            <span>Adega de vinhos digital - 28 garrafas</span>
-            <span className="text-lg font-bold">R$ 1.039,39</span>
-            <button className="bg-violet-950 text-white text-xl font-medium py-2">
-              Comprar
-            </button>
-          </div>
-        </div>
-        <div className="w-56 bg-gray-100 p-4 text-zinc-800 text-center">
-          <Image src={"/bg.png"} alt="oi" width={400} height={400} />
-          <div className="flex flex-col text-sm space-y-4 mt-4">
-            <span>Adega de vinhos digital - 28 garrafas</span>
-            <span className="text-lg font-bold">R$ 1.039,39</span>
-            <button className="bg-violet-950 text-white text-xl font-medium py-2">
-              Comprar
-            </button>
-          </div>
-        </div>
+        ))}
       </div>
-      <button className="bg-violet-950 text-white text-lg font-medium py-2 max-w-sm w-full uppercase">
+      <Link
+        href={"/presentes"}
+        className="bg-violet-950 hover:bg-violet-900 duration-300 text-white text-lg font-medium py-2 max-w-sm w-full uppercase"
+      >
         Ver mais
-      </button>
+      </Link>
     </div>
   );
 }

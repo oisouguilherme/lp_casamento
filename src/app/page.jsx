@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className=" bg-zinc-950">
+    <main className="bg-gradient-to-tr from-black to-zinc-900">
       <div className="bg-[url('/bg.png')] w-full min-h-screen bg-cover bg-bottom">
         <header className="max-w-6xl mx-auto flex items-center justify-between py-8">
           <span className="text-5xl font-bold text-white">
