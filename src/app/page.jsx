@@ -10,9 +10,6 @@ import { Link } from "react-scroll";
 export default function Home() {
   return (
     <main className="bg-gradient-to-tr from-black to-zinc-900">
-      <Head>
-        <title>GoiStore - A Teconologia Move o Mundo</title>
-      </Head>
       <div className="bg-[url('/bg.png')] w-full min-h-screen bg-cover bg-bottom">
         <header className="max-w-6xl mx-auto flex items-center justify-between px-4 py-8">
           <span className="text-5xl font-bold text-white">
