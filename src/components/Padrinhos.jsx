@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export function Padrinhos() {
   return (
-    <div className="max-w-6xl mx-auto text-center py-12 text-white space-y-12">
+    <div
+      className="max-w-6xl mx-auto text-center py-12 text-white space-y-12"
+      id="Padrinhos"
+    >
       <h2 className="font-bold text-4xl text-violet-700 flex gap-2 justify-center">
         Padrinhos
         <svg
@@ -26,7 +29,7 @@ export function Padrinhos() {
         Padrinhos da Noiva
       </h2>
       <div className="space-y-10">
-        <div className="flex gap-5 text-start items-center bg-zinc-900 shadow-lg shadow-zinc-800 rounded-3xl p-5 max-w-4xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-5 text-start items-center bg-zinc-900 shadow-lg shadow-zinc-800 rounded-3xl p-5 max-w-4xl mx-auto">
           <Image
             src={"/bg.png"}
             alt="oi"
@@ -43,7 +46,7 @@ export function Padrinhos() {
             </p>
           </div>
         </div>
-        <div className="flex gap-5 text-start items-center bg-zinc-900 shadow-lg shadow-zinc-800 rounded-3xl p-5 max-w-4xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-5 text-start items-center bg-zinc-900 shadow-lg shadow-zinc-800 rounded-3xl p-5 max-w-4xl mx-auto">
           <Image
             src={"/bg.png"}
             alt="oi"
@@ -65,8 +68,8 @@ export function Padrinhos() {
       <h2 className="font-semibold text-3xl text-violet-700">
         Padrinhos do Noivo
       </h2>
-      <div className="space-y-5">
-        <div className="flex gap-5 text-start items-center bg-zinc-900 shadow-lg shadow-zinc-800 rounded-3xl p-5 max-w-4xl mx-auto">
+      <div className="space-y-10">
+        <div className="flex flex-col md:flex-row gap-5 text-start items-center bg-zinc-900 shadow-lg shadow-zinc-800 rounded-3xl p-5 max-w-4xl mx-auto">
           <Image
             src={"/bg.png"}
             alt="oi"
@@ -83,7 +86,7 @@ export function Padrinhos() {
             </p>
           </div>
         </div>
-        <div className="flex gap-5 text-start items-center bg-zinc-900 shadow-lg shadow-zinc-800 rounded-3xl p-5 max-w-4xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-5 text-start items-center bg-zinc-900 shadow-lg shadow-zinc-800 rounded-3xl p-5 max-w-4xl mx-auto">
           <Image
             src={"/bg.png"}
             alt="oi"

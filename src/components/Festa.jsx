@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export function Festa() {
   return (
-    <div className="max-w-6xl mx-auto text-center py-12 text-white space-y-12">
+    <div
+      className="max-w-6xl mx-auto text-center py-12 text-white space-y-12"
+      id="Festa"
+    >
       <h2 className="font-bold text-4xl">Festa</h2>
 
       <p>
