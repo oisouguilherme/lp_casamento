@@ -27,7 +27,7 @@ export function ListPresentes() {
         QUERIDOS FAMILIARES E AMIGOS, PARA NÓS, A PRESENÇA DE VOCÊS NESTE DIA
         TÃO ESPECIAL É O MAIOR PRESENTE QUE PODERÍAMOS RECEBER. MAS, SE VOCÊS
         TAMBÉM QUISEREM NOS PRESENTEAR, FICAREMOS MUITO AGRADECIDOS. COM AMOR,
-        MARI E DUDU.
+        ISABELLA E GUILHERME.
       </p>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 justify-center">

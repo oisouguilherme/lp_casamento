@@ -3,7 +3,6 @@ import { Festa } from "@/components/Festa";
 import { ListPresentes } from "@/components/ListPresentes";
 import { Padrinhos } from "@/components/Padrinhos";
 import { Sobre } from "@/components/Sobre";
-import Head from "next/head";
 import React from "react";
 import { Link } from "react-scroll";
 import { Dancing_Script } from "next/font/google";

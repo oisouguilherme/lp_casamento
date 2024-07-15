@@ -3,6 +3,8 @@ import Image1 from "../assets/1.jpg";
 import Image2 from "../assets/2.jpg";
 import Image3 from "../assets/3.jpg";
 import Image4 from "../assets/4.jpg";
+import Image5 from "../assets/5.jpg";
+import Image6 from "../assets/6.jpg";
 
 export function Sobre() {
   return (
@@ -43,7 +45,7 @@ export function Sobre() {
       </p>
       <div className="grid justify-center sm:grid-cols-2 md:grid-cols-4 gap-5">
         <Image
-          src={Image1}
+          src={Image5}
           alt="oi"
           width={400}
           height={400}
