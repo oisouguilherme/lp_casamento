@@ -12,7 +12,7 @@ export default function Presentes() {
       </header>
       <div className="max-w-6xl mx-auto text-center py-5 sm:py-12 text-white space-y-12 flex flex-col items-center">
         <h2 className="font-bold text-3xl sm:text-4xl text-violet-700 flex flex-col sm:flex-row items-center justify-center gap-2">
-          Lista de casamento
+          Lista de Presentes
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -9,7 +9,7 @@ export function ListPresentes() {
       id="Presentes"
     >
       <h2 className="font-bold text-3xl sm:text-4xl text-violet-700 flex flex-col sm:flex-row items-center justify-center gap-2">
-        Lista de casamento
+        Lista de Presentes
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
