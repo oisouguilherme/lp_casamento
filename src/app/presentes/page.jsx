@@ -1,8 +1,14 @@
+"use client";
 import Image from "next/image";
 import presentes from "../../components/presentes.json";
 import Link from "next/link";
+import { useState } from "react";
+import { ModalConfirm } from "@/components/ModalConfirm";
 
 export default function Presentes() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedPresent, setSelectedPresent] = useState(null);
+
   return (
     <div className="bg-gradient-to-tr from-black to-zinc-900 px-4">
       <header className="max-w-6xl mx-auto flex items-center justify-between px-4 pt-8">
@@ -10,7 +16,7 @@ export default function Presentes() {
           𝒢 <span className="font-thin italic">+</span> 𝐼
         </Link>
       </header>
-      <div className="max-w-6xl mx-auto text-center py-5 sm:py-12 text-white space-y-12 flex flex-col items-center">
+      <div className="max-w-6xl mx-auto text-center py-5 sm:py-12 text-white gap-12 flex flex-col items-center">
         <h2 className="font-bold text-3xl sm:text-4xl text-violet-700 flex flex-col sm:flex-row items-center justify-center gap-2">
           Lista de Presentes
           <div>
@@ -48,16 +54,25 @@ export default function Presentes() {
                 </div>
                 <span>{e.nome}</span>
               </div>
-              <a
-                href={e.link}
-                target="_blank"
+              <button
+                //href={e.link}
+                onClick={() => {
+                  setSelectedPresent(e);
+                  setIsOpen(true);
+                }}
+                //target="_blank"
                 className="bg-violet-950 hover:bg-violet-900 duration-300 text-white py-2 text-sm uppercase"
               >
                 Ver no Site
-              </a>
+              </button>
             </div>
           ))}
         </div>
+        <ModalConfirm
+          isShowing={isOpen}
+          hide={() => setIsOpen(false)}
+          data={selectedPresent}
+        />
       </div>
       <footer className="text-xs text-center text-white pb-2 flex justify-between items-center max-w-6xl mx-auto px-4">
         <p>Guarde nossa data!</p>

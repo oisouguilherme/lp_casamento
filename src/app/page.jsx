@@ -1,11 +1,11 @@
 "use client";
 import { Festa } from "@/components/Festa";
 import { ListPresentes } from "@/components/ListPresentes";
-import { Padrinhos } from "@/components/Padrinhos";
 import { Sobre } from "@/components/Sobre";
 import React from "react";
 import { Link } from "react-scroll";
 import { Dancing_Script } from "next/font/google";
+import { ConfirmarPresenca } from "@/components/ConfirmarPresenca";
 const dancingScript = Dancing_Script({ subsets: ["latin"] });
 
 export default function Home() {
@@ -29,17 +29,7 @@ export default function Home() {
                   Sobre
                 </Link>
               </li>
-              {/* <li className="cursor-pointer">
-                <Link
-                  to="Padrinhos"
-                  spy={true}
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                >
-                  Padrinhos
-                </Link>
-              </li> */}
+
               <li className="cursor-pointer">
                 <Link
                   to="Presentes"
@@ -75,9 +65,9 @@ export default function Home() {
         </div>
       </div>
       <Sobre />
-      {/* <Padrinhos /> */}
       <ListPresentes />
       {/*  <Festa /> */}
+      <ConfirmarPresenca />
       <footer className="text-xs text-center text-white pb-2 flex justify-between items-center max-w-6xl mx-auto px-4">
         <p>Guarde nossa data!</p>
         <svg
