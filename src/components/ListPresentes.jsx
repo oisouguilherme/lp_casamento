@@ -1,8 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import presentes from "../components/presentes.json";
+import { ModalConfirm } from "./ModalConfirm";
+import { useState } from "react";
 
 export function ListPresentes() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedPresent, setSelectedPresent] = useState(null);
+
   return (
     <div
       className="max-w-6xl mx-auto text-center px-4 py-12 text-white space-y-12 flex flex-col items-center"
@@ -45,15 +50,22 @@ export function ListPresentes() {
               </div>
               <span>{e.nome}</span>
             </div>
-            <a
-              href={e.link}
-              target="_blank"
-              className="bg-violet-950 hover:bg-violet-900 duration-300 text-white py-2"
+            <button
+              onClick={() => {
+                setSelectedPresent(e);
+                setIsOpen(true);
+              }}
+              className="bg-violet-950 hover:bg-violet-900 duration-300 text-white py-2 text-sm uppercase"
             >
-              Ver no Site
-            </a>
+              presentear
+            </button>
           </div>
         ))}
+        <ModalConfirm
+          isShowing={isOpen}
+          hide={() => setIsOpen(false)}
+          data={selectedPresent}
+        />
       </div>
       <Link
         href={"/presentes"}

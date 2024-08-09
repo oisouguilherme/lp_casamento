@@ -55,15 +55,13 @@ export default function Presentes() {
                 <span>{e.nome}</span>
               </div>
               <button
-                //href={e.link}
                 onClick={() => {
                   setSelectedPresent(e);
                   setIsOpen(true);
                 }}
-                //target="_blank"
                 className="bg-violet-950 hover:bg-violet-900 duration-300 text-white py-2 text-sm uppercase"
               >
-                Ver no Site
+                presentear
               </button>
             </div>
           ))}
