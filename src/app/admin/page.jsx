@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import presentes from "../../components/presentes.json";
 
 export default function Admin() {
   const [convidados, setConvidados] = useState([]);
@@ -47,20 +48,32 @@ export default function Admin() {
     }
   }
 
+  function filtrarPorId(id) {
+    return presentes.filter((item) => item.id === id);
+  }
   return (
     <>
       {isLogged ? (
         <div className="bg-zinc-950 min-h-screen flex flex-col gap-5 justify-center items-center">
           <div className="flex flex-col gap-3 bg-gray-100 max-w-sm w-full p-4 rounded-md">
-            <h2>Lista de Convidados</h2>
+            <h2 className="text-xl font-medium">Lista de Convidados</h2>
             {convidados.map((e) => (
-              <div>teste</div>
+              <div key={e.id} className="text-sm">
+                <p>{e.name}</p>
+                <p>{e.phone}</p>
+                <p>{e.message}</p>
+              </div>
             ))}
           </div>
           <div className="flex flex-col gap-3 bg-gray-100 max-w-sm w-full p-4 rounded-md">
-            <h2>Lista de Presentes</h2>
+            <h2 className="text-xl font-medium">Lista de Presentes</h2>
             {gifts.map((e) => (
-              <div>teste</div>
+              <div key={e.id} className="text-sm">
+                <p>{e.name}</p>
+                <p>{e.email}</p>
+                <p>{filtrarPorId(e.giftId)[0]?.nome}</p>
+                <p>{e.giftMethod}</p>
+              </div>
             ))}
           </div>
         </div>
