@@ -19,9 +19,9 @@ export function ConfirmarPresenca() {
     e.preventDefault();
     const { name, message } = formData;
 
-    const data = `Olá, meu nome é *${name}*. \n\nEstou confirmando minha presença no casamento. \n\n${
-      message && message
-    }`;
+    const data = `Olá, Noivos!
+    \nEu, *${name}*, estou confirmando minha presença no casamento. 
+    \n\nMensagem: \n${message && message}`;
 
     const whatsappUrl = `https://wa.me/5538998542256?text=${data}`;
 
