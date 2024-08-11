@@ -27,10 +27,7 @@ export function ModalConfirm({ isShowing, hide, data }) {
     e.preventDefault();
     const { nome, presente, formaPagamento } = formData;
 
-    const message = `Eu, *${nome}* 
-    \nGostaria de confirmar que vamos presentear vocês com: 
-    \n*${presente}*
-    \n\nEscolhi a forma de pagamento: *${formaPagamento}*.`;
+    const message = `Eu, *${nome}* \nGostaria de confirmar que vamos presentear vocês com: \n*${presente}* \n\nEscolhi a forma de pagamento: \n*${formaPagamento}*`;
 
     const whatsappUrl = `https://wa.me/5538998542256?text=${encodeURIComponent(
       message
