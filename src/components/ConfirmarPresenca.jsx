@@ -1,14 +1,9 @@
 "use client";
-import axios from "axios";
 import { useState } from "react";
-import InputMask from "react-input-mask";
-import { toast } from "react-toastify";
-import { confirmAlert } from "react-confirm-alert";
 
 export function ConfirmarPresenca() {
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
     message: "",
   });
 
@@ -20,43 +15,17 @@ export function ConfirmarPresenca() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    const { name, message } = formData;
 
-    confirmAlert({
-      title: "Confirmar Presença",
-      message: "Você tem certeza que deseja confirmar sua presença?",
-      buttons: [
-        {
-          label: "Sim",
-          onClick: async () => {
-            try {
-              const response = await axios.post(
-                "https://api-casamento-alpha.vercel.app/confirm",
-                formData
-              );
-              toast.success("Presença confirmada com sucesso!");
-              setFormData({
-                name: "",
-                phone: "",
-                message: "",
-              });
-            } catch (error) {
-              console.error("Error submitting form:", error);
-              toast.error(
-                "Ocorreu um erro ao confirmar presença. Tente novamente mais tarde."
-              );
-            }
-          },
-        },
-        {
-          label: "Não",
-          onClick: () => {
-            toast.info("Ação cancelada.");
-          },
-        },
-      ],
-    });
+    const data = `Olá, meu nome é *${name}*. \n\nEstou confirmando minha presença no casamento. \n\n${
+      message && message
+    }`;
+
+    const whatsappUrl = `https://wa.me/5538998542256?text=${data}`;
+
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
@@ -76,7 +45,7 @@ export function ConfirmarPresenca() {
       <div>
         <form
           onSubmit={handleSubmit}
-          className="gap-5 p-5 text-gray-50 grid sm:grid-cols-2"
+          className="gap-5 p-5 text-gray-50 flex flex-col"
         >
           <label className="flex flex-col gap-1">
             <span>Nome:</span>
@@ -91,19 +60,6 @@ export function ConfirmarPresenca() {
             />
           </label>
           <label className="flex flex-col gap-1">
-            <span>Telefone:</span>
-            <InputMask
-              mask="(99) 99999-9999"
-              type="text"
-              name="phone"
-              className="bg-gray-100 rounded-md py-2 px-5 text-black"
-              placeholder="(99) 99999-9999"
-              value={formData.phone}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <label className="flex flex-col gap-1 sm:col-span-2">
             <span>Mensagem:</span>
             <textarea
               name="message"

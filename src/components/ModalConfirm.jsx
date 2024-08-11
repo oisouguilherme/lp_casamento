@@ -1,54 +1,46 @@
 "use client";
-import axios from "axios";
 import Image from "next/image";
-import React, { useState } from "react";
-import { confirmAlert } from "react-confirm-alert";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from "react";
 
 export function ModalConfirm({ isShowing, hide, data }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [giftMethod, setGiftMethod] = useState("");
+  const [formData, setFormData] = useState({
+    nome: "",
+    presente: "",
+    formaPagamento: "",
+  });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!name || !email || !giftMethod) {
-      toast.error("Por favor, preencha todos os campos antes de enviar.");
-      return;
-    }
-    confirmAlert({
-      title: "Confirmação",
-      message: "Tem certeza de que deseja confirmar este presente?",
-      buttons: [
-        {
-          label: "Sim",
-          onClick: async () => {
-            try {
-              await axios.post("https://api-casamento-alpha.vercel.app/gifts", {
-                name,
-                email,
-                giftMethod,
-                giftId: data.id,
-              });
-              toast.success("Presente confirmado com sucesso!");
-              // Limpar o formulário ou redirecionar, se necessário
-              setName("");
-              setEmail("");
-              setGiftMethod("");
-              hide();
-            } catch (error) {
-              console.log(error);
-              toast.error("Erro ao confirmar o presente. Tente novamente.");
-            }
-          },
-        },
-        {
-          label: "Não",
-          onClick: () => toast.info("Confirmação cancelada."),
-        },
-      ],
+  useEffect(() => {
+    setFormData({
+      ...formData,
+      presente: data?.nome,
+    });
+  }, [data]);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { nome, presente, formaPagamento } = formData;
+
+    const message = `Olá, meu nome é *${nome}*. 
+    
+    \n\nGostaria de confirmar que vou presentear com: 
+    \n*${presente}*. 
+    
+    \n\nEscolhi a forma de pagamento: *${formaPagamento}*.`;
+
+    const whatsappUrl = `https://wa.me/5538998542256?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     isShowing && (
       <div className="fixed inset-0 bg-black/60 flex justify-center items-center">
@@ -112,52 +104,31 @@ export function ModalConfirm({ isShowing, hide, data }) {
                     type="text"
                     className="bg-gray-100 py-1 rounded-md px-2"
                     placeholder="Seu nome"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    name="nome"
+                    value={formData.nome}
+                    onChange={handleChange}
                     required
                   />
                 </label>
-                <label className="flex flex-col text-sm gap-1">
-                  <span>E-mail</span>
-                  <input
-                    type="email"
-                    className="bg-gray-100 py-1 rounded-md px-2"
-                    placeholder="Seu e-mail"
-                    value={email}
-                    required
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </label>
-                <div className="flex flex-col text-sm gap-1 sm:col-span-2">
+                <div className="flex flex-col text-sm gap-1">
                   <span>Forma de Presentear</span>
-                  <div className="grid grid-cols-2">
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="giftMethod"
-                        value="Mandar PIX"
-                        checked={giftMethod === "Mandar PIX"}
-                        onChange={(e) => setGiftMethod(e.target.value)}
-                      />
-                      <span>Mandar PIX</span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="giftMethod"
-                        value="Vou Comprar"
-                        checked={giftMethod === "Vou Comprar"}
-                        onChange={(e) => setGiftMethod(e.target.value)}
-                      />
-                      <span>Vou Comprar</span>
-                    </label>
-                  </div>
+                  <select
+                    name="formaPagamento"
+                    value={formData.formaPagamento}
+                    onChange={handleChange}
+                    className="bg-gray-100 py-1 rounded-md px-2"
+                    required
+                  >
+                    <option value="">Selecionar</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Comprar na Loja">Comprar na Loja</option>
+                  </select>
                 </div>
                 <button
                   type="submit"
-                  className="bg-violet-700 hover:bg-violet-600 duration-300 text-white text-sm py-1 rounded-md uppercase sm:col-span-2"
+                  className="bg-violet-700 hover:bg-violet-600 duration-300 text-white text-sm py-1 rounded-md uppercase sm:col-span-2 mt-3"
                 >
-                  Enviar
+                  Confirmar Presente via WhatsApp
                 </button>
               </form>
             </div>
