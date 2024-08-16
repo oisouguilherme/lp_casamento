@@ -1,18 +1,23 @@
 "use client";
+import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import InputMask from "react-input-mask";
 
 export function ModalConfirm({ isShowing, hide, data }) {
   const [formData, setFormData] = useState({
-    nome: "",
-    presente: "",
-    formaPagamento: "",
+    name: "",
+    phone: "",
+    giftmethod: "",
+    giftid: data?.id,
   });
+  const [sending, setSending] = useState(false);
 
   useEffect(() => {
     setFormData({
       ...formData,
-      presente: data?.nome,
+      giftid: data?.id,
     });
   }, [data]);
 
@@ -23,17 +28,26 @@ export function ModalConfirm({ isShowing, hide, data }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { nome, presente, formaPagamento } = formData;
+    setSending(true);
+    try {
+      const response = await axios.post(
+        "https://api-casamento-dun.vercel.app/gifts",
+        formData
+      );
 
-    const message = `Eu, *${nome}* \nGostaria de confirmar que vamos presentear vocês com: \n*${presente}* \n\nEscolhi a forma de pagamento: \n*${formaPagamento}*`;
-
-    const whatsappUrl = `https://wa.me/5538998542256?text=${encodeURIComponent(
-      message
-    )}`;
-
-    window.open(whatsappUrl, "_blank");
+      if (response.status === 200) {
+        toast.success("Obrigado pelo presente!");
+        hide();
+      } else {
+        toast.error("Erro ao escolher presente");
+      }
+    } catch (error) {
+      console.error("Erro ao enviar presente:", error);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -65,7 +79,7 @@ export function ModalConfirm({ isShowing, hide, data }) {
           <div className="grid sm:grid-cols-3 gap-5 items-start mt-4">
             <Image
               src={data.imagem}
-              alt={data.name}
+              alt={data.nome}
               width={400}
               height={400}
               className="h-full max-h-64 object-contain"
@@ -99,17 +113,29 @@ export function ModalConfirm({ isShowing, hide, data }) {
                     type="text"
                     className="bg-gray-100 py-1 rounded-md px-2"
                     placeholder="Seu nome"
-                    name="nome"
-                    value={formData.nome}
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
                   />
                 </label>
-                <div className="flex flex-col text-sm gap-1">
+                <label className="flex flex-col text-sm gap-1">
+                  <span>Telefone</span>
+                  <InputMask
+                    mask="(99) 99999-9999"
+                    value={formData.phone}
+                    name="phone"
+                    required
+                    onChange={handleChange}
+                    className="bg-gray-100 py-1 rounded-md px-2 text-black"
+                    placeholder="Telefone"
+                  />
+                </label>
+                <div className="flex flex-col text-sm gap-1 col-span-2">
                   <span>Forma de Presentear</span>
                   <select
-                    name="formaPagamento"
-                    value={formData.formaPagamento}
+                    name="giftmethod"
+                    value={formData.giftmethod}
                     onChange={handleChange}
                     className="bg-gray-100 py-1 rounded-md px-2"
                     required
@@ -123,7 +149,7 @@ export function ModalConfirm({ isShowing, hide, data }) {
                   type="submit"
                   className="bg-violet-700 hover:bg-violet-600 duration-300 text-white text-sm py-1 rounded-md uppercase sm:col-span-2 mt-3"
                 >
-                  Confirmar Presente via WhatsApp
+                  {sending ? "Confirmando" : "Confirmar"}
                 </button>
               </form>
             </div>

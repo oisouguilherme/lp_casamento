@@ -2,12 +2,45 @@
 import Image from "next/image";
 import presentes from "../../components/presentes.json";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ModalConfirm } from "@/components/ModalConfirm";
+import axios from "axios";
 
 export default function Presentes() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPresent, setSelectedPresent] = useState(null);
+  const [presentesGanhos, setPresentesGanhos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchGifts = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          "https://api-casamento-dun.vercel.app/gifts"
+        );
+        setPresentesGanhos(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar presentes:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGifts();
+  }, []);
+
+  function getGiftNameById(id) {
+    const gift = presentesGanhos.find(
+      (gift) => gift.giftid == id && gift.giftmethod == "Comprar na Loja"
+    );
+
+    if (gift) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   return (
     <div className="bg-gradient-to-tr from-black to-zinc-900 px-4">
@@ -40,31 +73,59 @@ export default function Presentes() {
         </p>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 justify-center">
-          {presentes.map((e) => (
-            <div className="sm:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2">
-              <div className="flex flex-col justify-between text-sm space-y-2">
-                <div className="bg-white">
-                  <Image
-                    src={e.imagem}
-                    alt="oi"
-                    width={400}
-                    height={400}
-                    className="h-56 object-contain"
-                  />
+          {loading && (
+            <>
+              {Array.from({ length: 10 }, (_, index) => index).map((item) => (
+                <div
+                  key={item}
+                  className="sm:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2 animate-pulse"
+                >
+                  <div className="flex flex-col justify-between text-sm space-y-2">
+                    <div className="bg-gray-300 h-56 w-full rounded-md"></div>{" "}
+                    {/* Placeholder for image */}
+                    <div className="bg-gray-300 h-4 w-3/4 mx-auto mt-2 rounded-md"></div>{" "}
+                    {/* Placeholder for name */}
+                  </div>
+                  <div className="bg-gray-300 h-8 w-full rounded-md mt-2"></div>{" "}
+                  {/* Placeholder for button */}
                 </div>
-                <span>{e.nome}</span>
-              </div>
-              <button
-                onClick={() => {
-                  setSelectedPresent(e);
-                  setIsOpen(true);
-                }}
-                className="bg-violet-950 hover:bg-violet-900 duration-300 text-white py-2 text-sm uppercase"
-              >
-                presentear
-              </button>
-            </div>
-          ))}
+              ))}
+            </>
+          )}
+          {!loading && (
+            <>
+              {presentes.map((e) => (
+                <div className="sm:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2">
+                  <div className="flex flex-col justify-between text-sm space-y-2">
+                    <div className="bg-white">
+                      <Image
+                        src={e.imagem}
+                        alt="oi"
+                        width={400}
+                        height={400}
+                        className="h-56 object-contain"
+                      />
+                    </div>
+                    <span>{e.nome}</span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setSelectedPresent(e);
+                      setIsOpen(true);
+                    }}
+                    disabled={getGiftNameById(e.id)}
+                    className={`${
+                      getGiftNameById(e.id)
+                        ? "bg-red-500 cursor-not-allowed"
+                        : "bg-violet-950 hover:bg-violet-900"
+                    } duration-300 text-white py-2 text-sm uppercase`}
+                  >
+                    {getGiftNameById(e.id) ? "Esgotado" : "presentear"}
+                  </button>
+                </div>
+              ))}
+            </>
+          )}
         </div>
         <ModalConfirm
           isShowing={isOpen}
@@ -83,7 +144,7 @@ export default function Presentes() {
           viewBox="0 0 16 16"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2 2 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386"
           />
         </svg>
