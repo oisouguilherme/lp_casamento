@@ -131,7 +131,7 @@ export function ModalConfirm({ isShowing, hide, data }) {
                     placeholder="Telefone"
                   />
                 </label>
-                <div className="flex flex-col text-sm gap-1 col-span-2">
+                <div className="flex flex-col text-sm gap-1 md:col-span-2">
                   <span>Forma de Presentear</span>
                   <select
                     name="giftmethod"
