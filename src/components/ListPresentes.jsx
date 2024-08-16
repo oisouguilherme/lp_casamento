@@ -36,7 +36,7 @@ export function ListPresentes() {
       </p>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 justify-center">
-        {presentes.slice(0, 8).map((e) => (
+        {presentes.slice(0, 4).map((e) => (
           <div
             className="md:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2"
             key={e.id}

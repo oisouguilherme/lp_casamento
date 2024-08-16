@@ -78,7 +78,7 @@ export default function Presentes() {
               {Array.from({ length: 10 }, (_, index) => index).map((item) => (
                 <div
                   key={item}
-                  className="sm:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2 animate-pulse"
+                  className="w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2 animate-pulse"
                 >
                   <div className="flex flex-col justify-between text-sm space-y-2">
                     <div className="bg-gray-300 h-56 w-full rounded-md"></div>{" "}
