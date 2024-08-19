@@ -12,28 +12,26 @@ export default function Presentes() {
   const [presentesGanhos, setPresentesGanhos] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchGifts = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get(
-          "https://api-casamento-dun.vercel.app/gifts"
-        );
-        setPresentesGanhos(response.data);
-      } catch (error) {
-        console.error("Erro ao buscar presentes:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchGifts = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        "https://api-casamento-dun.vercel.app/gifts"
+      );
+      setPresentesGanhos(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar presentes:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchGifts();
   }, []);
 
   function getGiftNameById(id) {
-    const gift = presentesGanhos.find(
-      (gift) => gift.giftid == id && gift.giftmethod == "Comprar na Loja"
-    );
+    const gift = presentesGanhos.find((gift) => gift.giftid == id);
 
     if (gift) {
       return true;
@@ -46,7 +44,7 @@ export default function Presentes() {
     <div className="bg-gradient-to-tr from-black to-zinc-900 px-4">
       <header className="max-w-6xl mx-auto flex items-center justify-between px-4 pt-8">
         <Link href={"/"} className="text-3xl sm:text-5xl font-bold text-white">
-          𝒢 <span className="font-thin italic">+</span> 𝐼
+          𝐼 <span className="font-thin italic">+</span> 𝒢
         </Link>
       </header>
       <div className="max-w-6xl mx-auto text-center py-5 sm:py-12 text-white gap-12 flex flex-col items-center">
@@ -127,6 +125,7 @@ export default function Presentes() {
           )}
         </div>
         <ModalConfirm
+          reload={fetchGifts}
           isShowing={isOpen}
           hide={() => setIsOpen(false)}
           data={selectedPresent}

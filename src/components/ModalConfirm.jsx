@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import InputMask from "react-input-mask";
 
-export function ModalConfirm({ isShowing, hide, data }) {
+export function ModalConfirm({ isShowing, hide, data, reload }) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -40,6 +40,7 @@ export function ModalConfirm({ isShowing, hide, data }) {
       if (response.status === 200) {
         toast.success("Obrigado pelo presente!");
         hide();
+        reload();
       } else {
         toast.error("Erro ao escolher presente");
       }

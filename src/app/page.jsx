@@ -14,7 +14,7 @@ export default function Home() {
       <div className="bg-[url('/bdNoText.png')] w-full bg-cover bg-right sm:bg-bottom py-8">
         <header className="max-w-6xl mx-auto flex items-center justify-between px-4">
           <span className="text-5xl font-bold text-white">
-            𝒢 <span className="font-thin italic">+</span> 𝐼
+            𝐼 <span className="font-thin italic">+</span> 𝒢
           </span>
           <nav>
             <ul className="gap-12 font-medium text-white text-xl hidden sm:flex">
@@ -59,7 +59,7 @@ export default function Home() {
           className={`${dancingScript.className} flex flex-col justify-end items-end min-h-96 md:min-h-[600px] max-w-6xl mx-auto px-4`}
         >
           <p className="text-white text-5xl sm:text-8xl">
-            Guilherme & Isabella
+            Isabella & Guilherme
           </p>
           <p className="text-white text-xl sm:text-3xl">25/01/2025</p>
         </div>
