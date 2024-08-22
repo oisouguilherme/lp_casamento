@@ -2,11 +2,43 @@ import Image from "next/image";
 import Link from "next/link";
 import presentes from "../components/presentes.json";
 import { ModalConfirm } from "./ModalConfirm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export function ListPresentes() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPresent, setSelectedPresent] = useState(null);
+
+  const [presentesGanhos, setPresentesGanhos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchGifts = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        "https://api-casamento-dun.vercel.app/gifts"
+      );
+      setPresentesGanhos(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar presentes:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchGifts();
+  }, []);
+
+  function getGiftNameById(id) {
+    const gift = presentesGanhos.find((gift) => gift.giftid == id);
+
+    if (gift) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   return (
     <div
@@ -35,34 +67,66 @@ export function ListPresentes() {
       </p>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10 justify-center">
-        {presentes.slice(0, 4).map((e) => (
-          <div
-            className="md:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2"
-            key={e.id}
-          >
-            <div className="flex flex-col justify-between text-sm space-y-2">
-              <div className="bg-white">
-                <Image
-                  src={e.imagem}
-                  alt="oi"
-                  width={400}
-                  height={400}
-                  className="h-56 object-contain"
-                />
+        {loading && (
+          <>
+            {Array.from({ length: 4 }, (_, index) => index).map((item) => (
+              <div
+                key={item}
+                className="w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2 animate-pulse"
+              >
+                <div className="flex flex-col justify-between text-sm space-y-2">
+                  <div className="bg-gray-300 h-56 w-full rounded-md"></div>{" "}
+                  {/* Placeholder for image */}
+                  <div className="bg-gray-300 h-4 w-3/4 mx-auto mt-2 rounded-md"></div>{" "}
+                  {/* Placeholder for name */}
+                </div>
+                <div className="bg-gray-300 h-8 w-full rounded-md mt-2"></div>{" "}
+                {/* Placeholder for button */}
               </div>
-              <span>{e.nome}</span>
-            </div>
-            <button
-              onClick={() => {
-                setSelectedPresent(e);
-                setIsOpen(true);
-              }}
-              className="bg-violet-950 hover:bg-violet-900 duration-300 text-white py-2 text-sm uppercase"
-            >
-              presentear
-            </button>
-          </div>
-        ))}
+            ))}
+          </>
+        )}
+        {!loading && (
+          <>
+            {presentes.slice(0, 4).map((e) => (
+              <div
+                onClick={() => {
+                  !getGiftNameById(e.id) && setSelectedPresent(e);
+                  !getGiftNameById(e.id) && setIsOpen(true);
+                }}
+                key={e.id}
+                className="sm:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2"
+              >
+                <div className="flex flex-col justify-between text-sm space-y-2">
+                  <div className="bg-white">
+                    <Image
+                      src={e.imagem}
+                      alt="oi"
+                      width={400}
+                      height={400}
+                      className="h-56 object-contain"
+                    />
+                  </div>
+                  <span>{e.nome}</span>
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedPresent(e);
+                    setIsOpen(true);
+                  }}
+                  disabled={getGiftNameById(e.id)}
+                  className={`${
+                    getGiftNameById(e.id)
+                      ? "bg-red-500 cursor-not-allowed"
+                      : "bg-violet-950 hover:bg-violet-900"
+                  } duration-300 text-white py-2 text-sm uppercase`}
+                >
+                  {getGiftNameById(e.id) ? "Esgotado" : "presentear"}
+                </button>
+              </div>
+            ))}
+          </>
+        )}
         <ModalConfirm
           isShowing={isOpen}
           hide={() => setIsOpen(false)}

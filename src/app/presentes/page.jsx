@@ -92,7 +92,13 @@ export default function Presentes() {
           {!loading && (
             <>
               {presentes.map((e) => (
-                <div className="sm:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2">
+                <div
+                  onClick={() => {
+                    !getGiftNameById(e.id) && setSelectedPresent(e);
+                    !getGiftNameById(e.id) && setIsOpen(true);
+                  }}
+                  className="sm:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2"
+                >
                   <div className="flex flex-col justify-between text-sm space-y-2">
                     <div className="bg-white">
                       <Image

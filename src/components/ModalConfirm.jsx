@@ -53,8 +53,14 @@ export function ModalConfirm({ isShowing, hide, data, reload }) {
 
   return (
     isShowing && (
-      <div className="fixed inset-0 bg-black/60 flex justify-center items-center">
-        <div className="bg-white rounded-lg shadow-lg p-4 w-full max-w-2xl max-h-[80%] overflow-y-auto text-gray-950 mx-4">
+      <div
+        className="fixed inset-0 bg-black/60 flex justify-center items-center"
+        onClick={() => hide()}
+      >
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="bg-white rounded-lg shadow-lg p-4 w-full max-w-2xl max-h-[80%] overflow-y-auto text-gray-950 mx-4 z-10"
+        >
           <div className="flex justify-between items-baseline gap-5 text-start">
             <h2 className="text-lg font-semibold">{data.nome}</h2>
             <button
@@ -97,9 +103,9 @@ export function ModalConfirm({ isShowing, hide, data, reload }) {
               <a
                 href={data.link}
                 target="_blank"
-                className="text-violet-700 text-sm underline block cursor-pointer"
+                className="text-violet-700 underline block cursor-pointer"
               >
-                Confirmar valor no site
+                Ver valor no site
               </a>
               <form
                 className="grid sm:grid-cols-2 gap-2"
