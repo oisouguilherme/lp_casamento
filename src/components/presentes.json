@@ -74,8 +74,8 @@
   {
     "id": 15,
     "nome": "Escorredor de Louça Inox com Porta Pratos Talheres Copos Modular Master (Preto)",
-    "link": "https://www.amazon.com.br/gp/product/B0C8GX6GBZ/ref=ox_sc_act_title_4?smid=A2NK6PVGFGQ8D7&psc=1",
-    "imagem": "https://m.media-amazon.com/images/I/71RL7J9tfnL._AC_SX569_.jpg"
+    "link": "https://www.amazon.com.br/Escorredor-Cozinha-Andares-Bandeja-Remov%C3%ADvel/dp/B0D9HM1MMF/ref=sr_1_5?sr=8-5&ufe=app_do%3Aamzn1.fos.a492fd4a-f54d-4e8d-8c31-35e0a04ce61e",
+    "imagem": "https://m.media-amazon.com/images/I/71SM4g3dZ+L._AC_SY450_.jpg"
   },
   {
     "id": 16,
@@ -91,9 +91,9 @@
   },
   {
     "id": 18,
-    "nome": "Mondial CE-06, Chaleira Elétrica Premium, Preto/Cinza, 127 V",
-    "link": "https://www.amazon.com.br/gp/product/B076MCNZX6/ref=ox_sc_act_title_7?smid=A1ZZFT5FULY4LN&psc=1",
-    "imagem": "https://m.media-amazon.com/images/I/51K6htcmuWL._AC_SX679_.jpg"
+    "nome": "Chaleira Elétrica Cadence Contrast, 110V, Preto, 1,7L",
+    "link": "https://www.amazon.com.br/Chaleira-El%C3%A9trica-Contrast-Preto-Cadence/dp/B07S8DF74T/ref=sr_1_3?sr=8-3&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9",
+    "imagem": "https://m.media-amazon.com/images/I/517c17in3RL._AC_SY450_.jpg"
   },
   {
     "id": 19,
@@ -365,5 +365,35 @@
     "nome": "Conjunto de Refratários Celebrity, Retangular, 3 Peças, Incolor, Marinex",
     "link": "https://www.amazon.com.br/Marinex-Conjunto-Assadeiras-Retangulares-Incolor/dp/B0016LHBHM/ref=sr_1_6?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&sr=8-6&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9",
     "imagem": "https://m.media-amazon.com/images/I/71EsB8tl9dL._AC_SX569_.jpg"
+  },
+  {
+    "id": 66,
+    "nome": "Frigideira 26 cm ColorStone de alumínio com antiaderente Titânio",
+    "link": "https://www.amazon.com.br/Frigideira-ColorStone-26-cm-tit%C3%A2nio/dp/B08MT1K9XR/ref=sr_1_2_sspa?sr=8-2-spons&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY",
+    "imagem": "https://m.media-amazon.com/images/I/81ARDLDARlL._AC_SY450_.jpg"
+  },
+  {
+    "id": 67,
+    "nome": "Jogo de Xícaras de Café Cerâmica Louça 120 ml",
+    "link": "https://www.amazon.com.br/X%C3%ADcaras-Cer%C3%A2mica-Lou%C3%A7a-Variadas-unidades/dp/B0CMVR7BT2/ref=sr_1_13?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&sr=8-13",
+    "imagem": "https://m.media-amazon.com/images/I/51p0Y7T0LmL._AC_SY450_.jpg"
+  },
+  {
+    "id": 68,
+    "nome": "Panela de Pressão Tramontina Vancouver Effect em Alumínio Antiaderente Preto 20 cm 4,5 L",
+    "link": "https://www.amazon.com.br/Tramontina-Vancouver-Alum%C3%ADnio-Revestimento-Antiaderente/dp/B0CD4SCM33/ref=sr_1_6?sr=8-6&ufe=app_do%3Aamzn1.fos.6a09f7ec-d911-4889-ad70-de8dd83c8a74",
+    "imagem": "https://m.media-amazon.com/images/I/81ubjq2DfxL._AC_SX679_.jpg"
+  },
+  {
+    "id": 69,
+    "nome": "Frigideira Antiaderente Cerâmica Grande 28cm em Alumínio Revestido",
+    "link": "https://www.amazon.com.br/Frigideira-Antiaderente-Cer%C3%A2mica-Alum%C3%ADnio-Revestido/dp/B0D5PKTLBW/ref=sr_1_4_sspa?sr=8-4-spons&ufe=app_do%3Aamzn1.fos.a492fd4a-f54d-4e8d-8c31-35e0a04ce61e&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "imagem": "https://m.media-amazon.com/images/I/61LwzmvIa6L._AC_SY450_.jpg"
+  },
+  {
+    "id": 70,
+    "nome": "Jogo de Taças Vinho Agua Vidro Nadir 300ml - Kit 6",
+    "link": "https://www.amazon.com.br/Ta%C3%A7as-Vinho-Vidro-Nadir-300ml/dp/B08W2PKD7W/ref=sr_1_14?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&sr=8-14",
+    "imagem": "https://m.media-amazon.com/images/I/51CCynfziUL._AC_SY450_.jpg"
   }
 ]
