@@ -15,7 +15,7 @@ export default function Admin() {
     e.preventDefault();
     try {
       // Simulação de autenticação. Troque pelo endpoint real se necessário.
-      if (username === "admin" && password === "admin") {
+      if (username === "admin" && password === "Senha@1234") {
         setIsAuthenticated(true);
         setError("");
       } else {
