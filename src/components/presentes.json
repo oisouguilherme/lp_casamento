@@ -7,9 +7,9 @@
   },
   {
     "id": 2,
-    "nome": "Máquina de Lavar Consul 12 kg Branca com Dosagem Econômica - 110V",
-    "link": "https://www.amazon.com.br/gp/product/B0BTTDB3GF/ref=ox_sc_act_title_1?smid=A40JR8ZH35W5H&psc=1",
-    "imagem": "https://m.media-amazon.com/images/I/419g-x4HcrL._AC_SX466_.jpg"
+    "nome": "Máquina de Lavar Brastemp 13Kg Cinza Platinum 110v",
+    "link": "https://www.brastemp.com.br/maquina-de-lavar-brastemp-13kg-cinza-platinum-com-ciclo-tira-manchas-advanced-e-ciclo-antibolinha-bwk13a9/p?idsku=326125396&gad_source=1",
+    "imagem": "https://brastemp.vtexassets.com/arquivos/ids/239336-500-500?v=638276225739270000&width=500&height=500&aspect=true"
   },
   {
     "id": 3,
@@ -503,5 +503,29 @@
     "nome": "Cama Box Queen Preta + Colchão De Molas Ensacadas - Ortobom",
     "link": "https://www.amazon.com.br/Queen-Preta-Colch%C3%A3o-Molas-Ensacadas/dp/B08LJXFJRD/ref=asc_df_B08LJXFJRD/?gad_source=1&hvadid=709968340954&hvdev=c&hvdvcmdl&hvlocint&hvlocphy=20094&hvnetw=g&hvpone&hvpos&hvptwo&hvqmt&hvrand=16348336507186883415&hvtargid=pla-2265254823571&mcid=fe9e29e25297333886e97778e8dc08be&psc=1",
     "imagem": "https://m.media-amazon.com/images/I/51+Md+nkoIL._AC_SY300_SX300_.jpg"
+  },
+  {
+    "id": 88,
+    "nome": "Smart TV Philips 50 4K",
+    "link": "https://www.amazon.com.br/Philips-50PUG7408-78-Comando-Bluetooth/dp/B0CCJW1FVP/ref=asc_df_B0CCJW1FVP/?hvadid=709964502896&hvpos=&hvnetw=g&hvrand=9419404765600346258&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=20094&hvtargid=pla-2204943364695&psc=1&mcid=328acd9a927233d2a970db2c60917732&gad_source=1",
+    "imagem": "https://m.media-amazon.com/images/I/71efj0Th5TL._AC_SX522_.jpg"
+  },
+  {
+    "id": 88,
+    "nome": "Armário Banheiro Espelheira Gênova Com 1 Porta Cor Branco/Carrara",
+    "link": "https://www.amazon.com.br/Arm%C3%A1rio-Banheiro-Espelheira-G%C3%AAnova-Carrara/dp/B09P48FRX8/ref=sr_1_53?sr=8-53&ufe=app_do%3Aamzn1.fos.a492fd4a-f54d-4e8d-8c31-35e0a04ce61e",
+    "imagem": "https://m.media-amazon.com/images/I/51RGKoR7X5L._AC_SX679_.jpg"
+  },
+  {
+    "id": 88,
+    "nome": "Painel Paris Para Televisão De Até 50 Polegadas Quarto Sala (Preto)",
+    "link": "https://www.amazon.com.br/Painel-Televis%C3%A3o-Polegadas-Quarto-Branco/dp/B0CN1MPDCR/ref=sr_1_14?sr=8-14&ufe=app_do%3Aamzn1.fos.6121c6c4-c969-43ae-92f7-cc248fc6181d",
+    "imagem": "https://m.media-amazon.com/images/I/51rn-mywtjL._AC_SX679_.jpg"
+  },
+  {
+    "id": 88,
+    "nome": "Recamier Paris Baú Linho Cinza 1,00 Base e Pés em Madeira Maciça",
+    "link": "https://www.amazon.com.br/Recamier-Paris-Linho-Madeira-Maci%C3%A7a/dp/B0CX6HX63S/ref=sr_1_1_sspa?sr=8-1-spons&ufe=app_do%3Aamzn1.fos.a492fd4a-f54d-4e8d-8c31-35e0a04ce61e&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "imagem": "https://m.media-amazon.com/images/I/51e10T6FZEL._AC_SX679_.jpg"
   }
 ]
