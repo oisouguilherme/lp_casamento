@@ -31,7 +31,7 @@ export default function Admin() {
       const fetchGifts = async () => {
         try {
           const response = await axios.get(
-            "https://api-casamento-dun.vercel.app/gifts"
+            "https://api-casamento-mu.vercel.app/gifts"
           );
           setGifts(response.data);
         } catch (error) {

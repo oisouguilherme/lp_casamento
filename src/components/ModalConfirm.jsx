@@ -33,7 +33,7 @@ export function ModalConfirm({ isShowing, hide, data, reload }) {
     setSending(true);
     try {
       const response = await axios.post(
-        "https://api-casamento-dun.vercel.app/gifts",
+        "https://api-casamento-mu.vercel.app/gifts",
         formData
       );
 

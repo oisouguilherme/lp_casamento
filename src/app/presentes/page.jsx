@@ -16,7 +16,7 @@ export default function Presentes() {
     setLoading(true);
     try {
       const response = await axios.get(
-        "https://api-casamento-dun.vercel.app/gifts"
+        "https://api-casamento-mu.vercel.app/gifts"
       );
       setPresentesGanhos(response.data);
     } catch (error) {
