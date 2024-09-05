@@ -12,6 +12,12 @@
     "imagem": "https://http2.mlstatic.com/D_NQ_NP_772887-MLU74974404778_032024-O.webp"
   },
   {
+    "id": 27,
+    "nome": "Tigelas Vidro Diamond Conjunto 06 Peças 9cm",
+    "link": "https://www.amazon.com.br/gp/product/B0CY3W65C4/ref=ox_sc_act_title_16?smid=A3PO3I2CPODFNS&psc=1",
+    "imagem": "https://m.media-amazon.com/images/I/61VWvbFbBnL._AC_SX679_.jpg"
+  },
+  {
     "id": 28,
     "nome": "Balcão de Pia Madesa Reims 2 Portas - Preto",
     "link": "https://www.amazon.com.br/gp/product/B08LQKB9MS/ref=ox_sc_act_title_17?smid=A3AJP9L2LOT0PL",
@@ -28,5 +34,11 @@
     "nome": "Jogo de Pratos Raso Nadir Duralex Linha Pétala 6 Peças",
     "link": "https://www.amazon.com.br/Pratos-Nadir-Duralex-Linha-P%C3%A9tala/dp/B09WNBJVM7/ref=pd_bxgy_d_sccl_1/134-2055924-2917351?psc=1",
     "imagem": "https://m.media-amazon.com/images/I/41Sc5S-WKuL._AC_SX679_.jpg"
+  },
+  {
+    "id": 74,
+    "nome": "Conjunto Cerâmica 16 Peças Pratos Bowls Canecas Preto - Hauskraft",
+    "link": "https://www.amazon.com.br/Conjunto-Cer%C3%A2mica-Pe%C3%A7as-Pratos-Canecas/dp/B0D8JX1ZSR?ref_=Oct_d_onr_d_17124800011_1",
+    "imagem": "https://m.media-amazon.com/images/I/413-tBM7oXL._AC_SX679_.jpg"
   }
 ]
