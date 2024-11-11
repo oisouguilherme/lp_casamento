@@ -49,6 +49,10 @@ export default function Admin() {
     const gift = presentes.find((gift) => gift.id == id);
     return gift ? gift.nome : null;
   }
+  function getGiftImageById(id) {
+    const gift = presentes.find((gift) => gift.id == id);
+    return gift ? gift.imagem : null;
+  }
   return (
     <div className="p-6">
       {!isAuthenticated ? (
@@ -100,6 +104,7 @@ export default function Admin() {
                   <th className="border px-4 py-2">Telefone</th>
                   <th className="border px-4 py-2">Tipo</th>
                   <th className="border px-4 py-2">Presente</th>
+                  <th className="border px-4 py-2">Imagem</th>
                 </tr>
               </thead>
               <tbody>
@@ -110,6 +115,12 @@ export default function Admin() {
                     <td className="border px-4 py-2">{gift.giftmethod}</td>
                     <td className="border px-4 py-2">
                       {getGiftNameById(gift.giftid)}
+                    </td>
+                    <td className="border px-4 py-2">
+                      <img
+                        src={getGiftImageById(gift.giftid)}
+                        className="w-24"
+                      />
                     </td>
                   </tr>
                 ))}
