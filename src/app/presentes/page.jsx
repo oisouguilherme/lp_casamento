@@ -79,54 +79,58 @@ export default function Presentes() {
                 >
                   <div className="flex flex-col justify-between text-sm space-y-2">
                     <div className="bg-gray-300 h-56 w-full rounded-md"></div>{" "}
-                    {/* Placeholder for image */}
                     <div className="bg-gray-300 h-4 w-3/4 mx-auto mt-2 rounded-md"></div>{" "}
-                    {/* Placeholder for name */}
                   </div>
                   <div className="bg-gray-300 h-8 w-full rounded-md mt-2"></div>{" "}
-                  {/* Placeholder for button */}
                 </div>
               ))}
             </>
           )}
           {!loading && (
             <>
-              {presentes.map((e) => (
-                <div
-                  onClick={() => {
-                    !getGiftNameById(e.id) && setSelectedPresent(e);
-                    !getGiftNameById(e.id) && setIsOpen(true);
-                  }}
-                  className="sm:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2"
-                >
-                  <div className="flex flex-col justify-between text-sm space-y-2">
-                    <div className="bg-white">
-                      <Image
-                        src={e.imagem}
-                        alt="oi"
-                        width={400}
-                        height={400}
-                        className="h-56 object-contain"
-                      />
+              {presentes
+                .sort((a, b) => {
+                  return getGiftNameById(a.id) - getGiftNameById(b.id);
+                })
+                .map((e) => (
+                  <div className="sm:w-56 bg-gray-100 p-2 text-zinc-800 flex flex-col justify-between text-center space-y-2">
+                    <div className="flex flex-col justify-between text-sm space-y-2">
+                      <div className="bg-white">
+                        <Image
+                          src={e.imagem}
+                          alt="oi"
+                          width={400}
+                          height={400}
+                          className="h-56 object-contain"
+                        />
+                      </div>
+                      <span>{e.nome}</span>
                     </div>
-                    <span>{e.nome}</span>
+                    <div className="grid grid-cols-2 gap-3">
+                      <a
+                        href={e.link}
+                        target="_blank"
+                        className="bg-emerald-600 hover:bg-emerald-600/80 duration-300 text-white flex items-center justify-center uppercase text-xs"
+                      >
+                        Ver na Loja
+                      </a>
+                      <button
+                        onClick={() => {
+                          setSelectedPresent(e);
+                          setIsOpen(true);
+                        }}
+                        disabled={getGiftNameById(e.id)}
+                        className={`${
+                          getGiftNameById(e.id)
+                            ? "bg-red-500 cursor-not-allowed"
+                            : "bg-violet-950 hover:bg-violet-900"
+                        } duration-300 text-white py-2 text-xs uppercase`}
+                      >
+                        {getGiftNameById(e.id) ? "Esgotado" : "presentear"}
+                      </button>
+                    </div>
                   </div>
-                  <button
-                    onClick={() => {
-                      setSelectedPresent(e);
-                      setIsOpen(true);
-                    }}
-                    disabled={getGiftNameById(e.id)}
-                    className={`${
-                      getGiftNameById(e.id)
-                        ? "bg-red-500 cursor-not-allowed"
-                        : "bg-violet-950 hover:bg-violet-900"
-                    } duration-300 text-white py-2 text-sm uppercase`}
-                  >
-                    {getGiftNameById(e.id) ? "Esgotado" : "presentear"}
-                  </button>
-                </div>
-              ))}
+                ))}
             </>
           )}
         </div>
